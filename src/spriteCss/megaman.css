@@ -1,0 +1,187 @@
+.ur0 {
+    width: 24px; height: 40px;
+    background: url('../spriteCss/up-right.png') -28px -0;
+}
+
+.ur1 {
+    width: 23px; height: 40px;
+    background: url('../spriteCss/up-right.png') -52px -0;
+}
+
+.ur2 {
+    width: 26px; height: 37px;
+    background: url('../spriteCss/up-right.png') -0 -35px;
+}
+
+.ur3 {
+    width: 28px; height: 35px;
+    background: url('../spriteCss/up-right.png') -0 -0;
+}
+
+.u0 {
+    width: 18px; height: 40px;
+    background: url('../spriteCss/up.png') -0 -0;
+}
+
+.u1 {
+    width: 18px; height: 40px;
+    background: url('../spriteCss/up.png') -18px -0;
+}
+
+.u2 {
+    width: 16px; height: 38px;
+    background: url('../spriteCss/up.png') -36px -0;
+}
+
+.u3 {
+    width: 16px; height: 38px;
+    background: url('../spriteCss/up.png') -36px -0;
+}
+
+.r0 {
+    width: 20px; height: 39px;
+    background: url('../spriteCss/right.png') -27px -34px;
+}
+
+.r1 {
+    width: 27px; height: 39px;
+    background: url('../spriteCss/right.png') -0 -34px;
+}
+
+.r2 {
+    width: 33px; height: 34px;
+    background: url('../spriteCss/right.png') -0 -0;
+}
+
+.r3 {
+    width: 36px; height: 31px;
+    background: url('../spriteCss/right.png') -33px -0;
+}
+
+.dr0 {
+    width: 18px; height: 38px;
+    background: url('../spriteCss/down-right.png') -0 -38px;
+}
+
+.dr1 {
+    width: 25px; height: 38px;
+    background: url('../spriteCss/down-right.png') -0 -0;
+}
+
+.dr2 {
+    width: 27px; height: 32px;
+    background: url('../spriteCss/down-right.png') -25px -0;
+}
+
+.dr3 {
+    width: 29px; height: 27px;
+    background: url('../spriteCss/down-right.png') -52px -0;
+}
+
+.d0 {
+    width: 19px; height: 38px;
+    background: url('../spriteCss/down.png') -0 -0;
+}
+
+.d1 {
+    width: 18px; height: 38px;
+    background: url('../spriteCss/down.png') -19px -0;
+}
+
+.d2 {
+    width: 16px; height: 34px;
+    background: url('../spriteCss/down.png') -37px -0;
+}
+
+.d3 {
+    width: 18px; height: 29px;
+    background: url('../spriteCss/down.png') -53px -0;
+}
+
+.l0 {
+    width: 20px; height: 39px;
+    background: url('../spriteCss/right.png') -27px -34px;
+    transform: scaleX(-1);
+
+}
+
+.l1 {
+    width: 27px; height: 39px;
+    background: url('../spriteCss/right.png') -0 -34px;
+    transform: scaleX(-1);
+
+}
+
+.l2 {
+    width: 33px; height: 34px;
+    background: url('../spriteCss/right.png') -0 -0;
+    transform: scaleX(-1);
+}
+
+.l3 {
+    width: 36px; height: 31px;
+    background: url('../spriteCss/right.png') -33px -0;
+    transform: scaleX(-1);
+
+}
+
+.ul0 {
+    width: 24px; height: 40px;
+    background: url('../spriteCss/up-right.png') -28px -0;
+    transform: scaleX(-1);
+
+}
+
+.ul1 {
+    width: 23px; height: 40px;
+    background: url('../spriteCss/up-right.png') -52px -0;
+    transform: scaleX(-1);
+
+}
+
+.ul2 {
+    width: 26px; height: 37px;
+    background: url('../spriteCss/up-right.png') -0 -35px;
+    transform: scaleX(-1);
+
+}
+
+.ul3 {
+    width: 28px; height: 35px;
+    background: url('../spriteCss/up-right.png') -0 -0;
+    transform: scaleX(-1);
+
+}
+
+.dl0 {
+    width: 18px; height: 38px;
+    background: url('../spriteCss/down-right.png') -0 -38px;
+    transform: scaleX(-1);
+
+}
+
+.dl1 {
+    width: 25px; height: 38px;
+    background: url('../spriteCss/down-right.png') -0 -0;
+    transform: scaleX(-1);
+
+}
+
+.dl2 {
+    width: 27px; height: 32px;
+    background: url('../spriteCss/down-right.png') -25px -0;
+    transform: scaleX(-1);
+
+}
+
+.dl3 {
+    width: 29px; height: 27px;
+    background: url('../spriteCss/down-right.png') -52px -0;
+    transform: scaleX(-1);
+
+}
+
+.idle{
+    width: 17px; height:32px;
+    background: url('../spriteCss/idle.png');
+}
