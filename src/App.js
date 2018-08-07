@@ -94,7 +94,7 @@ class App extends Component {
     const {velocity} = this.state
     const {x, y} = velocity
     if (this.colliding) {
-      this.setState({x: this.state.x - x, y: this.state.y - y})
+      this.setState({x: this.state.x - x*1.5, y: this.state.y - y*1.5})
     }
     else if ((x !== 0 || y !== 0)) {
       this.setState({x: this.state.x + x, y: this.state.y + y})
