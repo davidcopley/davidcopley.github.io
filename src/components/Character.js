@@ -1,92 +1,22 @@
 import React from "react"
-
+import man from "../sprites/4.png"
 class Character extends React.Component{
   render(){
     return(
       <div
         style={{
-          width: 20,
-          height: 10,
-          borderRadius: 5,
+          width: 1,
+          height: 1,
           boxShadow: "5px 5px 3 rgba(0,0,0,0.3)",
-          transform: `translateX(calc(50vw - 10px)) translateY(calc(50vh - 5px))`,
-          background: "rgba(0,0,0,0.8)",
-          position: "fixed",
-          ...this.props.style
+          transform: `translateX(calc(50vw)) translateY(calc(50vh))`,
+          background: "red",
+          position: "absolute",
+          ...this.props.style,
+          display:"flex",
+          justifyContent:"center"
         }}
       >
-        <div style={{position: "relative", left: 8}}>
-          <div
-            style={{
-              width: 10,
-              height: 15,
-              borderRadius: 5,
-              position: "absolute",
-              top: -20,
-              left: -2.5,
-              background: "#9010ff"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -10,
-              left: 4,
-              background: "green"
-            }}
-          />
-          <div
-            style={{
-              width: 15,
-              height: 15,
-              borderRadius: 5,
-              position: "absolute",
-              top: -30,
-              left: -5,
-              background: "#521cf3"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -10,
-              left: -3,
-              background: "green"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -15,
-              left: 10,
-              background: "green",
-              transform: "rotate(-20deg)"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -15,
-              left: -10,
-              background: "green",
-              transform: "rotate(20deg)"
-            }}
-          />
-
-
-        </div>
+        <img src={man} height={30} style={{position:"absolute",top:-30}} alt=""/>
       </div>
     )
   }

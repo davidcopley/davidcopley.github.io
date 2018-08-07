@@ -9,32 +9,32 @@ import internetBackground from "./backgrounds/internetBackground.gif"
 class App extends Component {
 
 
-
   constructor(props) {
     super(props)
     this.state = {
-      x: 20,
-      y: 30,
+      x: 0,
+      y: 0,
       keys: {},
       velocity: {x: 0, y: 0},
       windowWidth: null,
-      windowHeight: null
+      windowHeight: null,
+      colliding: false,
+      speedScale: 2.8
+
     }
 
     this.image = new Image(window.innerWidth, window.innerHeight)
     this.image.src = map1
-    this.speedScale = 2.8
-    this.xSpeed = 1 * this.speedScale
-    this.ySpeed = 0.5 * this.speedScale
+    this.xSpeed = 1
+    this.ySpeed = 0.5
   }
-
 
 
   componentDidMount() {
     window.addEventListener('keydown', e => {
       e.preventDefault()
       const {keys} = this.state
-      if (!keys[e.keyCode]) {
+      if (!keys[e.keyCode] && !this.colliding) {
         this.setState({keys: {...this.state.keys, [e.keyCode]: true}}, () => {
           const velocity = this.getVelocity()
           this.setState({velocity: velocity}, () => this.handleMovement())
@@ -44,7 +44,7 @@ class App extends Component {
     window.addEventListener('keyup', e => {
       e.preventDefault()
       const {keys} = this.state
-      if (keys[e.keyCode]) {
+      if (keys[e.keyCode] && !this.colliding) {
         this.setState({keys: {...this.state.keys, [e.keyCode]: false}}, () => {
           const velocity = this.getVelocity()
           this.setState({velocity: velocity}, () => this.handleMovement())
@@ -76,30 +76,35 @@ class App extends Component {
 
 
   getVelocity = () => {
-    const {keys} = this.state
+    const {speedScale, keys} = this.state
     const [left, up, right, down] = [keys[37], keys[38], keys[39], keys[40]]
     let x = 0
     let y = 0
-    if (left) x -= this.xSpeed
-    if (right) x += this.xSpeed
-    if (up) y -= this.ySpeed
-    if (down) y += this.ySpeed
+    if (left) x -= this.xSpeed * speedScale
+    if (right) x += this.xSpeed * speedScale
+    if (up) y -= this.ySpeed * speedScale
+    if (down) y += this.ySpeed * speedScale
     return {x, y}
   }
 
   handleMovement = () => {
     const {velocity} = this.state
     const {x, y} = velocity
-    if (x !== 0 || y !== 0) {
+    if (this.colliding) {
+      this.setState({x: this.state.x - x, y: this.state.y - y})
+    }
+    else if ((x !== 0 || y !== 0)) {
       this.setState({x: this.state.x + x, y: this.state.y + y})
     }
   }
 
-
+  collisionCheck = (func) => {
+    const {x, y} = this.state
+    this.colliding = func(x, y)
+  }
 
   render() {
     const {x, y} = this.state
-    console.log(this.state.velocity)
     return (
       <div
         style={{
@@ -107,7 +112,8 @@ class App extends Component {
           height: "100%",
           minWidth: "100vw",
           minHeight: "100vh",
-
+          overflow:"hidden",
+          position:"absolute"
         }}
       >
         <img
@@ -115,8 +121,8 @@ class App extends Component {
           width={242}
           height={160}
           style={{
-            position:"fixed",
-            transform:"translateX(calc(50vw - 120px)) translateY(calc(50vh - 80px))"
+            position: "absolute",
+            transform: "translateX(calc(50vw - 120px)) translateY(calc(50vh - 80px))"
           }}
           alt=""
         />
@@ -127,14 +133,17 @@ class App extends Component {
             position: "absolute",
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
+            left: 'calc(50% - 518px)',
+            top: 'calc(50% - 324px)',
             transform: `translateX(${-x}px) translateY(${-y}px)`
           }}
+          collisionCheck={this.collisionCheck}
         />
         <Character/>
         <ScreenBox/>
-        <h1 style={{color: "#fff", position: "fixed", top: 0, width:"100vw"}}>
+        <span style={{color: "#fff", position: "fixed", top: 0, width: "100vw", fontSize:"2vh"}}>
           Hello World Page
-        </h1>
+        </span>
 
       </div>
     );
