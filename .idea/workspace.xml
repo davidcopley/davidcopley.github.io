@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43ebddde-fa81-4569-a0f5-6a235449334e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/sprites/4.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Character.js" afterPath="$PROJECT_DIR$/src/components/Character.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map.js" afterPath="$PROJECT_DIR$/src/components/Map.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +20,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="143" column="91" lean-forward="false" selection-start-line="143" selection-start-column="91" selection-end-line="143" selection-end-column="91" />
+            <state relative-caret-position="196">
+              <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -207,12 +203,12 @@
       <updated>1533620541841</updated>
       <workItem from="1533620544091" duration="6337000" />
       <workItem from="1533630844004" duration="1734000" />
-      <workItem from="1533639818581" duration="3959000" />
+      <workItem from="1533639818581" duration="4723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12199000" />
+    <option name="totallyTimeSpent" value="12963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -446,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="143" column="91" lean-forward="false" selection-start-line="143" selection-start-column="91" selection-end-line="143" selection-end-column="91" />
+        <state relative-caret-position="196">
+          <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

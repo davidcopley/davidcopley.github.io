@@ -34,7 +34,7 @@ class App extends Component {
     window.addEventListener('keydown', e => {
       e.preventDefault()
       const {keys} = this.state
-      if (!keys[e.keyCode] && !this.colliding) {
+      if (!keys[e.keyCode]) {
         this.setState({keys: {...this.state.keys, [e.keyCode]: true}}, () => {
           const velocity = this.getVelocity()
           this.setState({velocity: velocity}, () => this.handleMovement())
@@ -44,7 +44,7 @@ class App extends Component {
     window.addEventListener('keyup', e => {
       e.preventDefault()
       const {keys} = this.state
-      if (keys[e.keyCode] && !this.colliding) {
+      if (keys[e.keyCode]) {
         this.setState({keys: {...this.state.keys, [e.keyCode]: false}}, () => {
           const velocity = this.getVelocity()
           this.setState({velocity: velocity}, () => this.handleMovement())
@@ -76,6 +76,9 @@ class App extends Component {
 
 
   getVelocity = () => {
+    if(this.colliding){
+      return this.state.velocity
+    }
     const {speedScale, keys} = this.state
     const [left, up, right, down] = [keys[37], keys[38], keys[39], keys[40]]
     let x = 0
