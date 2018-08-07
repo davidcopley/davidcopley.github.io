@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import Map from "./components/Map"
+import Character from "./components/Character"
+import ScreenBox from "./components/ScreenBox"
 import './App.css';
 import map1 from "./maps/map1.gif"
 import internetBackground from "./backgrounds/internetBackground.gif"
 
 class App extends Component {
+
+
 
   constructor(props) {
     super(props)
@@ -19,12 +23,12 @@ class App extends Component {
 
     this.image = new Image(window.innerWidth, window.innerHeight)
     this.image.src = map1
-    console.log(this.image)
+    this.speedScale = 2.8
+    this.xSpeed = 1 * this.speedScale
+    this.ySpeed = 0.5 * this.speedScale
   }
 
-  speedScale = 2.8
-  xSpeed = 1 * this.speedScale
-  ySpeed = 0.5 * this.speedScale
+
 
   componentDidMount() {
     window.addEventListener('keydown', e => {
@@ -80,18 +84,6 @@ class App extends Component {
     if (right) x += this.xSpeed
     if (up) y -= this.ySpeed
     if (down) y += this.ySpeed
-    if (x > this.xSpeed) {
-      x = 1
-    }
-    if (x < -this.xSpeed) {
-      x = -1
-    }
-    if (y > this.ySpeed) {
-      y = 1
-    }
-    if (y < -this.ySpeed) {
-      y = -1
-    }
     return {x, y}
   }
 
@@ -103,105 +95,6 @@ class App extends Component {
     }
   }
 
-  renderScreenBox = () => {
-    return (
-      <span>
-        <div style={{width: "100vw", height: "33vh", position: "fixed", background: "#000"}}/>
-        <div style={{width: "100vw", height: "33vh", position: "fixed", bottom: 0, background: "#000"}}/>
-        <div style={{width: "25vw", height: "100vh", position: "fixed", left: 0, background: "#000"}}/>
-        <div style={{width: "25vw", height: "100vh", position: "fixed", right: 0, background: "#000"}}/>
-      </span>
-    )
-  }
-
-  renderCharacter = () => {
-    return (
-      <div
-        style={{
-          width: 20,
-          height: 10,
-          borderRadius: 5,
-          boxShadow: "5px 5px 3 rgba(0,0,0,0.3)",
-          transform: `translateX(${this.state.windowWidth / 2}px) translateY(${this.state.windowHeight / 2}px)`,
-          background: "rgba(0,0,0,0.8)",
-          position: "absolute",
-        }}
-      >
-        <div style={{position: "relative", left: 8}}>
-          <div
-            style={{
-              width: 10,
-              height: 15,
-              borderRadius: 5,
-              position: "absolute",
-              top: -20,
-              left: -2.5,
-              background: "#9010ff"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -10,
-              left: 4,
-              background: "green"
-            }}
-          />
-          <div
-            style={{
-              width: 15,
-              height: 15,
-              borderRadius: 5,
-              position: "absolute",
-              top: -30,
-              left: -5,
-              background: "#521cf3"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -10,
-              left: -3,
-              background: "green"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -15,
-              left: 10,
-              background: "green",
-              transform: "rotate(-20deg)"
-            }}
-          />
-          <div
-            style={{
-              width: 4,
-              height: 15,
-              borderRadius: 3,
-              position: "absolute",
-              top: -15,
-              left: -10,
-              background: "green",
-              transform: "rotate(20deg)"
-            }}
-          />
-
-
-        </div>
-      </div>
-    )
-  }
 
 
   render() {
@@ -219,26 +112,26 @@ class App extends Component {
       >
         <img
           src={internetBackground}
-          width={this.state.windowWidth*0.51}
-          height={this.state.windowWidth*0.3}
+          width={242}
+          height={160}
           style={{
             position:"fixed",
-            transform:"translateX(25vw) translateY(33vh)"
+            transform:"translateX(calc(50vw - 120px)) translateY(calc(50vh - 80px))"
           }}
           alt=""
         />
         <Map
           style={{
-            width: this.state.windowWidth,
-            height: this.state.windowHeight,
+            width: 1036,
+            height: 648,
             position: "absolute",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             transform: `translateX(${-x}px) translateY(${-y}px)`
           }}
         />
-        {this.renderCharacter()}
-        {this.renderScreenBox()}
+        <Character/>
+        <ScreenBox/>
         <h1 style={{color: "#fff", position: "fixed", top: 0, width:"100vw"}}>
           Hello World Page
         </h1>
