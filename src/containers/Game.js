@@ -74,9 +74,6 @@ class Game extends Component {
 
 
   getVelocity = () => {
-    if(this.colliding){
-      return {x:0,y:0}
-    }
     const {speedScale, keys} = this.state
     const [left, up, right, down] = [keys[37], keys[38], keys[39], keys[40]]
     let x = 0
