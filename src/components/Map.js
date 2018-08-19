@@ -10,18 +10,19 @@ class Map extends React.Component{
     image.onload = () => {
       const context = this.canvas.getContext('2d')
       context.drawImage(image,0,0,image.width,image.height)
-      this.props.collisionCheck((x,y)=>this.collisionCheck(x,y))
+      this.props.collisionCheck((x,y,velocity)=>this.collisionCheck(x,y,velocity))
     }
   }
 
-  collisionCheck = (x,y) => {
+  collisionCheck = (xPos,yPos,velocity) => {
+    const {x,y} = velocity
     const context = this.canvas.getContext('2d')
-    const data = Array.from(context.getImageData(x+518,y+324,1,1).data)
+    const data = Array.from(context.getImageData(xPos+518+x,yPos+324+y,1,1).data)
     return (data.every(e => e === 0))
   }
 
   componentDidUpdate(){
-    this.props.collisionCheck((x,y)=>this.collisionCheck(x,y))
+    this.props.collisionCheck((x,y,velocity)=>this.collisionCheck(x,y,velocity))
   }
 
   render(){

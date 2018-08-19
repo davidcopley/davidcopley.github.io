@@ -75,7 +75,7 @@ class Game extends Component {
 
   getVelocity = () => {
     if(this.colliding){
-      return this.state.velocity
+      return {x:0,y:0}
     }
     const {speedScale, keys} = this.state
     const [left, up, right, down] = [keys[37], keys[38], keys[39], keys[40]]
@@ -92,7 +92,7 @@ class Game extends Component {
     const {velocity} = this.state
     const {x, y} = velocity
     if (this.colliding) {
-      this.setState({x: this.state.x - x*1.5, y: this.state.y - y*1.5})
+      this.setState({x: this.state.x, y: this.state.y})
     }
     else if ((x !== 0 || y !== 0)) {
       this.setState({x: this.state.x + x, y: this.state.y + y})
@@ -100,8 +100,8 @@ class Game extends Component {
   }
 
   collisionCheck = (func) => {
-    const {x, y} = this.state
-    this.colliding = func(x, y)
+    const {x, y, velocity} = this.state
+    this.colliding = func(x, y, velocity)
   }
 
   render() {
